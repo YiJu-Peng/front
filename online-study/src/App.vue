@@ -1,6 +1,5 @@
 <template>
-  <h3>yes really?</h3>
-
+   <h3>index</h3>
 </template>
 
 <script>

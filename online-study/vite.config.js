@@ -17,9 +17,10 @@ export default defineConfig({
   bulid:{
     rollupOptions:{
       input:{
-        index: resolve(_dirname,'index.html'),
-        home: resolve(_dirname,'home.html'),
-        mine: resolve(_dirname,'mine.html')
+        login: resolve(__dirname,'login.html'),
+        index: resolve(__dirname,'index.html'),
+        home: resolve(__dirname,'home.html'),
+        mine: resolve(__dirname,'mine.html')
       }
     }
   }
