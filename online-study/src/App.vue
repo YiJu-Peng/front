@@ -1,8 +1,20 @@
 <template>
-   <h3>index</h3>
+   <search>11</search>
 </template>
 
 <script>
+import search from './components/search.vue';
+export default{
+   data(){
+      return{
+
+      }
+   },
+   components:{
+      search
+   }
+}
+
 
 
 </script>
