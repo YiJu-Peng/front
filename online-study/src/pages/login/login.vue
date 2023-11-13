@@ -1,3 +1,99 @@
+<template>
+  <div class="container">
+    <div class="form-box" :style="formBoxStyle">
+      <!-- 注册 -->
+      <div class="register-box" v-show="showRegister">
+        <h1>register</h1>
+        <input type="text" placeholder="用户名" v-model="username">
+        <input type="email" placeholder="邮箱" v-model="email">
+        <input type="password" placeholder="密码" v-model="password">
+        <input type="password" placeholder="确认密码" v-model="confirmPassword">
+        <button @click="register">注册</button>
+        <p v-if="showRegisterError" class="error">请填写全部信息</p>
+      </div>
+      <!-- 登录 -->
+      <div class="login-box" v-show="!showRegister">
+        <h1>login</h1>
+        <input type="text" placeholder="用户名" v-model="username">
+        <input type="password" placeholder="密码" v-model="password">
+        <button @click="login">登录</button>
+        <p v-if="showLoginError" class="error">请填写全部信息</p>
+      </div>
+    </div>
+    <div class="con-box left">
+      <h2>欢迎加入<span>码上</span>学习</h2>
+      <p>即刻，我们<span>出发</span>吧</p>
+
+      <p>已有账号</p>
+      <button id="login" @click="showLoginForm">去登录</button>
+    </div>
+    <div class="con-box right">
+      <h2>欢迎来到<span>码上</span>学习</h2>
+      <p>今天也一起<span>努力</span>吧</p>
+
+      <p>没有账号？</p>
+      <button id="register" @click="showRegisterForm">去注册</button>
+    </div>
+    <div id="leftframe1"></div>
+    <div id="rightframe1"></div>
+    <div id="underframe"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      showRegister: false,
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      showRegisterError: false,
+      showLoginError: false
+    };
+  },
+  computed: {
+    formBoxStyle() {
+      return {
+        transform: this.showRegister ? "translateX(80%)" : "translateX(0%)"
+      };
+    }
+  },
+  methods: {
+    register() {
+      if (
+        this.username &&
+        this.email &&
+        this.password &&
+        this.confirmPassword
+      ) {
+        this.showRegisterError = false;
+      } else {
+        this.showRegisterError = true;
+      }
+    },
+    login() {
+      if (this.username && this.password) {
+        this.showLoginError = false;
+      } else {
+        this.showLoginError = true;
+      }
+    },
+    showLoginForm() {
+      this.showRegister = false;
+    },
+    showRegisterForm() {
+      this.showRegister = true;
+    }
+  }
+};
+</script>
+
+<style scoped>
+  .error {
+  color: red;
+}
 *{
     /* 初始化 */
     margin: 0;
@@ -193,3 +289,4 @@ input:focus::placeholder{
     z-index: 99;
     background-color: #fff;
 }
+  </style>

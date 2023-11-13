@@ -1,17 +1,21 @@
 <template>
-   <search>11</search>
+<home></home>
+
 </template>
 
 <script>
-import search from './components/search.vue';
+
+import login from './pages/login/login.vue';
+import home from './pages/home/home.vue';
 export default{
+  
    data(){
       return{
 
       }
    },
    components:{
-      search
+       login,home
    }
 }
 
